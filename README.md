@@ -1,4 +1,4 @@
-# ec2exmaple
+# ec2example
 test
 
 yaho
