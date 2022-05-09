@@ -2,6 +2,7 @@
     <div class="header">
         <span> Title </span>
         <button>버튼 1</button>
+        <div> example </div>
     </div>
 </template>
 
