@@ -1,14 +1,33 @@
 <template>
     <div class="header">
         <span> Title </span>
-        <button>버튼 1</button>
-        <div> example </div>
+        <button @click="onClick()">버튼 1</button>
+        <div> {{ json }}</div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: "Header"
+    name: "Header",
+    data() {
+        return {
+            json : "test"
+        }
+    },
+
+    methods: {
+        onClick() {
+            axios.get('/api/json')
+            .then((res) => {
+                this.json = "이름은 " + res.data.name + ", 이니셜은 " + res.data.initial + "입니다.";
+                console.log(res.data.name + ' ' + res.data.initial);
+            }).catch(function(e) {
+                console.log(e);
+            });
+        }
+    }
 }
 </script>
 

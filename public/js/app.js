@@ -5626,6 +5626,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Body'
 });
@@ -5643,6 +5644,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -5651,8 +5654,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Header"
+  name: "Header",
+  data: function data() {
+    return {
+      json: "test"
+    };
+  },
+  methods: {
+    onClick: function onClick() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/json').then(function (res) {
+        _this.json = "이름은 " + res.data.name + ", 이니셜은 " + res.data.initial + "입니다.";
+        console.log(res.data.name + ' ' + res.data.initial);
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -31141,6 +31162,8 @@ var staticRenderFns = [
       _c("h1", { staticClass: "h1test" }, [_vm._v("h1")]),
       _vm._v(" "),
       _c("h2", { staticClass: "h2test" }, [_vm._v("h2 test")]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "h3test" }, [_vm._v("h3 yes")]),
     ])
   },
 ]
@@ -31166,22 +31189,25 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "header" }, [
+    _c("span", [_vm._v(" Title ")]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        on: {
+          click: function ($event) {
+            return _vm.onClick()
+          },
+        },
+      },
+      [_vm._v("버튼 1")]
+    ),
+    _vm._v(" "),
+    _c("div", [_vm._v(" " + _vm._s(_vm.json))]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header" }, [
-      _c("span", [_vm._v(" Title ")]),
-      _vm._v(" "),
-      _c("button", [_vm._v("버튼 1")]),
-      _vm._v(" "),
-      _c("div", [_vm._v(" example ")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
