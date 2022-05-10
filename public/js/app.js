@@ -5625,8 +5625,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Body'
 });
@@ -31160,10 +31158,6 @@ var staticRenderFns = [
       _c("p", { staticClass: "pfont" }, [_vm._v("p tag test")]),
       _vm._v(" "),
       _c("h1", { staticClass: "h1test" }, [_vm._v("h1")]),
-      _vm._v(" "),
-      _c("h2", { staticClass: "h2test" }, [_vm._v("h2 test")]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "h3test" }, [_vm._v("h3 yes")]),
     ])
   },
 ]
