@@ -6,8 +6,6 @@
         <a class="alink" href="https://naver.com" target="_blank">anchor</a>   <!-- naver.com 연결 하고 누르면 보라색으로 바뀌는데 안 바뀌게 -->
         <p class="pfont">p tag test</p>        <!-- 폰트 값을 arial 설정, 사이즈 변경, 밑줄 치기 -->
         <h1 class="h1test">h1</h1>     <!-- 커서를 갖다대면 손가락이 나옴 -->
-        <h2 class="h2test">h2 test</h2>
-        <h3 class="h3test">h3 yes</h3>
     </div>
 
 </template>
