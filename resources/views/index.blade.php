@@ -10,7 +10,7 @@
     </head>
     <body>
         test page
-        <button onclick="onClick()">테스트 입니다ㅏㅏㅏ</button>
+        <button onclick="onClick()">테스트 입니다</button>
         <script>
             function onClick() {
                 // () => {} == function() {}

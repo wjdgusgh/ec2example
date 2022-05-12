@@ -1,11 +1,11 @@
 <template>
-    <a :href="linkpage" :class="name" target="_blank" :style="{ backgroundColor: background }">{{ text }}</a>
+    <a :href="linkpage" :class="pagename" target="_blank" :style="{ backgroundColor: background }">{{ text }}</a>
 </template>
 
 <script>
 export default {
     name: 'Menu',
-    props: [ 'name', 'linkpage', 'text', 'background' ],
+    props: [ 'pagename', 'linkpage', 'text', 'background' ],
     created() {
         console.log(this.background)
     }

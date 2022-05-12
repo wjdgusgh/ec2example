@@ -5664,9 +5664,10 @@ __webpack_require__.r(__webpack_exports__);
     onClick: function onClick() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/json').then(function (res) {
-        _this.json = "이름은 " + res.data.name + ", 이니셜은 " + res.data.initial + "입니다.";
-        console.log(res.data.name + ' ' + res.data.initial);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/json').then(function (_ref) {
+        var data = _ref.data;
+        _this.json = "이름은 " + data.name + ", 이니셜은 " + data.initial + "입니다.";
+        console.log(data.name + ' ' + data.initial);
       })["catch"](function (e) {
         console.log(e);
       });
@@ -5731,7 +5732,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Menu',
-  props: ['name', 'linkpage', 'text', 'background'],
+  props: ['pagename', 'linkpage', 'text', 'background'],
   created: function created() {
     console.log(this.background);
   }
@@ -5767,37 +5768,32 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Menu: _Menu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  created: function created() {
+    this.loadPages();
+  },
   data: function data() {
     return {
-      json: [{
-        href: "https://youtube.com",
-        pagename: "유튜브",
-        text: "youtube",
-        background: "red"
-      }, {
-        href: "https://google.com",
-        pagename: "구글",
-        text: "google",
-        background: "orange"
-      }, {
-        href: "https://emotibank.co.kr",
-        pagename: "이모티뱅크",
-        text: "emotibank",
-        background: "yellow"
-      }, {
-        href: "https://naver.com",
-        pagename: "네이버",
-        text: "naver",
-        background: "green"
-      }, {
-        href: "https://pola-show.co.kr",
-        pagename: "폴라리스 쇼",
-        text: "polarisshow",
-        background: "blue"
-      }]
+      json: []
     };
+  },
+  methods: {
+    loadPages: function loadPages() {
+      var _this = this;
+
+      this.json = axios.get('/api/webpages').then(function (_ref) {
+        var data = _ref.data;
+        _this.json = data;
+        console.log(data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
-});
+}); //{ href: "https://youtube.com", pagename: "유튜브", text: "youtube", background: "red" },
+//                { href: "https://google.com", pagename: "구글", text: "google", background: "orange" },
+//                { href: "https://emotibank.co.kr", pagename: "이모티뱅크", text: "emotibank", background: "yellow"},
+//                { href: "https://naver.com", pagename: "네이버", text: "naver", background: "green"},
+//               { href: "https://pola-show.co.kr", pagename: "폴라리스 쇼", text: "polarisshow", background: "blue"}
 
 /***/ }),
 
@@ -31266,7 +31262,7 @@ var render = function () {
   return _c(
     "a",
     {
-      class: _vm.name,
+      class: _vm.pagename,
       style: { backgroundColor: _vm.background },
       attrs: { href: _vm.linkpage, target: "_blank" },
     },
@@ -31301,7 +31297,7 @@ var render = function () {
     _vm._l(_vm.json, function (item, index) {
       return _c("Menu", {
         key: index,
-        class: item.text,
+        class: item.textname,
         attrs: {
           href: item.href,
           text: item.pagename,

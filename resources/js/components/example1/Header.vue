@@ -20,9 +20,9 @@ export default {
     methods: {
         onClick() {
             axios.get('/api/json')
-            .then((res) => {
-                this.json = "이름은 " + res.data.name + ", 이니셜은 " + res.data.initial + "입니다.";
-                console.log(res.data.name + ' ' + res.data.initial);
+            .then(({data}) => {
+                this.json = "이름은 " + data.name + ", 이니셜은 " + data.initial + "입니다.";
+                console.log(data.name + ' ' + data.initial);
             }).catch(function(e) {
                 console.log(e);
             });

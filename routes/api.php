@@ -17,3 +17,4 @@ use App\Http\Controllers\ApiController;
 
 Route::get('/test', [ ApiController::class, "test" ] );
 Route::get('/json', [ ApiController::class, "json" ] );
+Route::get('/webpages', [ ApiController::class, "webpages"]);
