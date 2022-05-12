@@ -5732,7 +5732,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Menu',
-  props: ['pagename', 'linkpage', 'text', 'background'],
+  props: ['href', 'classname', 'pagename', 'background'],
   created: function created() {
     console.log(this.background);
   }
@@ -5780,10 +5780,10 @@ __webpack_require__.r(__webpack_exports__);
     loadPages: function loadPages() {
       var _this = this;
 
-      this.json = axios.get('/api/webpages').then(function (_ref) {
+      axios.get('/api/webpages').then(function (_ref) {
         var data = _ref.data;
-        _this.json = data;
         console.log(data);
+        _this.json = data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -31262,11 +31262,11 @@ var render = function () {
   return _c(
     "a",
     {
-      class: _vm.pagename,
+      class: _vm.classname,
       style: { backgroundColor: _vm.background },
-      attrs: { href: _vm.linkpage, target: "_blank" },
+      attrs: { href: _vm.href, target: "_blank" },
     },
-    [_vm._v(_vm._s(_vm.text))]
+    [_vm._v(_vm._s(_vm.pagename))]
   )
 }
 var staticRenderFns = []
@@ -31297,10 +31297,10 @@ var render = function () {
     _vm._l(_vm.json, function (item, index) {
       return _c("Menu", {
         key: index,
-        class: item.textname,
+        class: item.classname,
         attrs: {
           href: item.href,
-          text: item.pagename,
+          pagename: item.pagename,
           background: item.background,
         },
       })

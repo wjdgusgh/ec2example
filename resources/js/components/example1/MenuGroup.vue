@@ -2,8 +2,8 @@
     <div >
         <Menu v-for="(item, index) in json" :key="index"
             :href="item.href"
-            :class="item.textname"
-            :text="item.pagename"
+            :class="item.classname"
+            :pagename="item.pagename"
             :background="item.background"/>
     </div>
 </template>
@@ -24,10 +24,10 @@ export default {
     },
     methods: {
         loadPages() {
-            this.json = axios.get('/api/webpages')
+            axios.get('/api/webpages')
                     .then(({data}) => {
-                        this.json = data;
                         console.log(data);
+                        this.json = data;
                     })
                     .catch((error) => {
                         console.log(error);
