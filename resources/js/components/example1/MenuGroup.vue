@@ -1,10 +1,9 @@
 <template>
     <div >
-        <Menu v-for="(item, index) in json" :key="index"
+        <Menu v-for="(item, key) in json" :key="key"
             :href="item.href"
-            :class="item.classname"
-            :pagename="item.pagename"
-            :background="item.background"/>
+            :classname="item.classname"
+            :pagename="item.pagename+ '('+item.classname+')'"/>
     </div>
 </template>
 
@@ -22,11 +21,11 @@ export default {
             json: [],
         }
     },
+
     methods: {
         loadPages() {
             axios.get('/api/webpages')
                     .then(({data}) => {
-                        console.log(data);
                         this.json = data;
                     })
                     .catch((error) => {

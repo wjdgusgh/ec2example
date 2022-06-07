@@ -18,3 +18,10 @@ use App\Http\Controllers\ApiController;
 Route::get('/test', [ ApiController::class, "test" ] );
 Route::get('/json', [ ApiController::class, "json" ] );
 Route::get('/webpages', [ ApiController::class, "webpages"]);
+
+Route::post('/newaccount', [ ApiController::class, "signup" ]);
+Route::get('/account/{email}', [ ApiController::class, "getEmail" ]);
+Route::get('/accountlist', [ ApiController::class, "getAccountList" ]);
+Route::get('/accountinfo/{email}', [ ApiController::class, "getAccountInfo" ]);
+
+Route::get('/wowmagazine', [ ApiController::class, "wowmagazine" ]);

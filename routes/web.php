@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ApiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +24,32 @@ Route::get('/index', [ MainController::class, "main" ]);
 
 Route::get('example', function() {
     return view('example');
+});
+
+Route::get('/signin', function () {
+    return view('signin');
+});
+
+Route::get('/signup', function () {
+    return view('signup');
+});
+
+Route::get('/accountlist', function () {
+    return view('accountlist');
+});
+
+Route::get('/account/{email}', function ($email) {
+    return view('account', [ 'email' => $email ]);
+});
+
+Route::get('/croptest', function () {
+    return view('croptest');
+});
+
+Route::get('/addtexttest', function () {
+    return view('addtexttest');
+});
+
+Route::get('addtexttestt', function () {
+    return view('addtexttestt');
 });

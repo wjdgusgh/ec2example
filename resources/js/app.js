@@ -19,6 +19,8 @@ window.Vue = require('vue').default;
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+//Vue.component('sign-up', require('./components/SignUp.vue').default);
+
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /*
@@ -42,8 +44,18 @@ import Vue from 'vue';
 //import Main from './components/Main'
 import Main from './components/example1/Main'
 //import Main from './components/example2/Main'
+import SignUp from './components/SignUp'
+import SignIn from './components/SignIn'
+import Account from './components/Account'
+import AccountList from './components/AccountList'
 
 const el = document.getElementById('app');
+const su = document.getElementById('signup');
+const acc = document.getElementById('account');
+const accLi = document.getElementById('accountlist');
+const si = document.getElementById('signin');
+
+Vue.component('account', require('./components/Account.vue').default);
 
 const app = new Vue({
     el: el,
@@ -59,4 +71,38 @@ const app = new Vue({
         return h(Main)
     }
 
+});
+
+const signup = new Vue({
+    el: su,
+
+    render(h) {
+        return h(SignUp)
+    }
+});
+
+const accountlist = new Vue({
+    el: accLi,
+
+    render(h) {
+        return h(AccountList)
+    }
+});
+
+const account = new Vue({
+    el: acc,
+
+    render(h) {
+        return h(Account, {
+            props: { acce: acc.dataset }
+        })
+    },
+});
+
+const signin = new Vue({
+    el: si,
+
+    render(h) {
+        return h(SignIn)
+    }
 });
